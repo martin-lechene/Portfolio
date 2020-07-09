@@ -1,0 +1,140 @@
+//l-layout for all navigation in smartphone mode
+.l-header-nav-menu-ham-icon {
+    display: block;
+    height: 5rem;
+    position: relative;
+}
+
+.l-header-nav-menu-main {
+    display: none;
+    position: absolute;
+    background-color: black;
+    left: 0;
+    top: 0;
+    width: 75%;
+    height: 100vh;
+    opacity: 0.9;
+    z-index: 99999;
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style: none;
+        display: block;
+    }
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: map-get($map: $colors, $key: 'main1');
+        display: inline-block;
+        padding: 1rem .6rem;
+    }
+    a.is-active {
+        color: map-get($map: $colors, $key: 'main2');
+    }
+    a:hover {
+        color: map-get($map: $colors, $key: 'main2');
+    }
+}
+
+//creation icon hamburger
+
+.l-header-nav-menu-ham-icon .icon{
+    //middle bar of Hamburger
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    right: 0;
+    height: 3px;
+    width: 20px;
+    background-color: map-get($map: $colors, $key: 'txt');
+    transition: all 0.3s;
+}
+    //bottom bar of hamburger
+.l-header-nav-menu-ham-icon .icon::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 3px;
+    width: 20px;
+    background-color: map-get($map: $colors, $key: 'txt');
+    transition: all 0.3s;
+    }
+    //top bar of hamburger
+.l-header-nav-menu-ham-icon .icon::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    height: 3px;
+    width: 20px;
+    background-color: map-get($map: $colors, $key: 'txt');
+    transition: all 0.3s;
+}
+
+
+//ANIMATION 1 = changing ham to cross
+
+//first change middle bar into white
+.l-header-nav-menu-ham-icon.cross>.icon {
+    background-color: map-get($map: $colors, $key: 'main1');
+    transition: background-color 0.3s;
+}
+
+//second change top and bottom bar to cross
+.l-header-nav-menu-ham-icon.cross>.icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+    transition: all 0.3s;
+}
+.l-header-nav-menu-ham-icon.cross>.icon::before {
+    transform: rotate(45deg);
+    top: 0;
+    transition: all 0.3s;
+}
+
+//ANIMATION 2 = display menu
+
+.l-header-nav-menu-main.is-active {
+    display: block;
+    animation: animation 1s;
+}
+
+@keyframes animation {
+    from {
+        transform: translate(-1000px);
+    }
+    to {
+        transform: translate(0px);
+    }
+}
+
+//ANIMATION 3 = blur main content
+.l-main {
+    filter: none;
+}
+
+.l-main.is-active {
+    filter: blur(5px) grayscale(70%);
+}
+
+//Media Query for tablette
+@media screen and (min-width: 768px) {
+    .l-header-nav-menu-ham-icon {
+        display: none;
+    }
+    .l-header-nav-menu-main {
+        display: block;
+        position: static;
+        background-color: transparent;
+        opacity: 1;
+        width: 100%;
+        height: auto;
+        li, a {
+            display: inline-block;
+        }
+        a {
+            color: map-get($map: $colors, $key: 'txt');
+        }
+    }
+}
