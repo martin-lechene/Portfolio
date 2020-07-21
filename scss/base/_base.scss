@@ -32,11 +32,13 @@ img {
     text-decoration: none;
     padding: 0.7rem 2rem;
     color: map-get($map: $colors, $key: 'main1');
-    background-color: map-get($map: $colors, $key: 'main2');
+    background-color: map-get($map: $colors, $key: 'main2'); //For browsers that do not support gradients
+    background-image: linear-gradient(to right, map-get($map: $colors, $key: 'main2'), map-get($map: $colors, $key: 'btn') ); //For gradient effect
     border-radius: 5px;
     margin-top: 2rem;
     &:hover {
-        border: 0.1rem white solid;
+        background-color: map-get($map: $colors, $key: 'main2'); //For browsers that do not support gradients
+        background-image: linear-gradient(to right, map-get($map: $colors, $key: 'btn'), map-get($map: $colors, $key: 'main2') ); //For gradient effect
     }
 }
 

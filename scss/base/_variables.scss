@@ -3,5 +3,16 @@ $colors: (
     'main1': white,
     'main2': rgb(154, 207, 214),
     'main3': black,
-    'txt': rgba(24, 23, 23, 0.467),    
+    'bg': rgb(96, 162, 173),
+    'txt': rgb(88, 87, 87),
+    'btn':rgb(160, 180, 178)
+);
+
+//Variables for grid sytem - loop in grid.scss
+$grid-columns: 12;
+
+$screen-sizes: (
+    'md': 768px, //Breakpoint from smartphone to tablette
+    'lg': 992px, //Breakpoint from tablette to PC
+    'xl': 1200px //Breakpoint from PC to large PC
 );

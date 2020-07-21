@@ -1,19 +1,9 @@
 // First module of landing-page - infobox
 .l-main-infobox {
-    position: relative;
+    background-color: map-get($map: $colors, $key: 'bg');
 }
-.l-main-infobox::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url("../img/background1.jpg") no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;    
-}
-.l-main-infobox-content {
-    position: relative;
+
+.l-main-infobox-content {    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,4 +58,8 @@
             animation-delay: 2.5s;
         }
     }
+}
+
+.l-main-infobox-content-image {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
