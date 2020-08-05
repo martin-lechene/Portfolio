@@ -1,0 +1,75 @@
+.m-home-portfolio {
+    background-color: map-get($map: $colors, $key: 'main1');
+}
+
+.m-home-portfolio-intro {
+    text-align: center;
+    display: block;
+    padding: 5rem 0 3rem 0;
+    h1 {
+        padding-bottom: 1rem;
+    }
+}
+
+.m-home-portfolio-area-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;    
+    h2 {
+        text-transform: capitalize;
+        margin: 1rem 0;
+        a {
+            text-decoration: none;
+            color: map-get($map: $colors, $key: 'txt');            
+            &:hover {
+                color: map-get($map: $colors, $key: 'main2');
+            }
+        }
+    }
+}
+
+.m-home-portfolio-area-box-illustration {
+    background-color: map-get($map: $colors, $key: 'main3');
+    border-radius: 10px;       
+    display: block;
+    position: relative; //For place icon in absolute
+    z-index: 1;
+    background-color: map-get($map: $colors, $key: 'main2'); //For browsers that do not support gradients
+    background-image: linear-gradient(to right, map-get($map: $colors, $key: 'main2'), map-get($map: $colors, $key: 'main3') ); //For gradient effect        
+    img {
+        height: 20rem;
+        border-radius: 10px;
+        display: block;       
+    }
+    &:hover {
+        .m-home-portfolio-area-box-icon {
+            display: block;
+        }
+        .m-home-portfolio-area-box-pic {
+            img {
+                opacity: 0.1;
+            }
+        }
+    }
+}
+
+.m-home-portfolio-area-box-icon {
+    position: absolute;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    display: none;   
+    img {
+        height: auto;
+    }    
+}
+
+//Media Query for tablette
+@media screen and (min-width: 768px) {
+    .m-home-portfolio-area-box {
+        margin: 0.5rem;
+    }
+}
